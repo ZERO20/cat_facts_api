@@ -1,0 +1,11 @@
+version: '3'
+services:
+    app:
+        build: .
+        command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+        container_name: cat-facts-api
+        restart: always
+        volumes:
+            - ".:/app"
+        ports:
+            - "80:8000"
